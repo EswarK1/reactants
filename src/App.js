@@ -1,4 +1,4 @@
-import {  List, Button,Space ,Table} from 'antd';
+import {  List, Button,Space ,Typography} from 'antd';
 import React, { useState } from 'react';
 import {BOY_NAMES,GIRL_NAMES} from '../src/constants'
 import './App.css';
@@ -43,7 +43,7 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
+    key: pickRandomName(BOY_NAMES[pickRandomLetter(BOY_NAMES)]),
     render: (text) => <a>{text}</a>,
   }]
 
@@ -51,8 +51,8 @@ const columns = [
     <section className="alphabetContainer">
       <Space>
         <Button onClick={handleChange}>Generate Random Name</Button>
+        <Typography>{name}</Typography>
       </Space>
-      {/* <Table columns={columns} dataSource={name}/> */}
       <List
         grid={{column: 6}}
         dataSource={ALPHABET}
